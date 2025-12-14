@@ -1,51 +1,85 @@
-<script setup>
+<script setup lang="ts">
+import * as locales from '@nuxt/ui/locale'
+
+const { locale, setLocale } = useI18n()
+
+// Handle locale change with proper persistence
+const handleLocaleChange = async (newLocale: 'ar' | 'en') => {
+  await setLocale(newLocale)
+}
+
+// Get the Nuxt UI locale object based on current i18n locale
+const nuxtUILocale = computed(() => {
+  const localeKey = locale.value as keyof typeof locales
+  return locales[localeKey] || locales.en
+})
+
+// Dynamic language and direction based on locale
+const lang = computed(() => nuxtUILocale.value?.code || 'en')
+const dir = computed(() => nuxtUILocale.value?.dir || 'ltr')
+
+const { t } = useI18n()
+const appConfig = useAppConfig()
+
+const appTitle = computed(() => t('app.title') || 'Final Dash')
+const appDescription = computed(() => t('app.desc') || 'A production-ready starter template')
+
 useHead({
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' }
   ],
   link: [
+    // Standard favicon
     { rel: 'icon', href: '/favicon.ico' }
+
+    // PNG icons
+    // { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+    // { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+    // { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicon-96x96.png' },
+    // { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/android-chrome-192x192.png' },
+    // { rel: 'icon', type: 'image/png', sizes: '512x512', href: '/android-chrome-512x512.png' },
+
+    // Apple Touch Icon
+    // { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+
+    // Safari pinned tab
+    // { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#5bbad5' },
   ],
   htmlAttrs: {
-    lang: 'en'
+    lang,
+    dir
   }
 })
 
-const title = 'Nuxt Starter Template'
-const description = 'A production-ready starter template powered by Nuxt UI. Build beautiful, accessible, and performant applications in minutes, not hours.'
-
 useSeoMeta({
-  title,
-  description,
-  ogTitle: title,
-  ogDescription: description,
-  ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/starter-light.png',
-  twitterImage: 'https://ui.nuxt.com/assets/templates/nuxt/starter-light.png',
-  twitterCard: 'summary_large_image'
+  title: appTitle,
+  description: appDescription,
+  ogTitle: appTitle,
+  ogDescription: appDescription,
+  ogImage: appConfig.app.seo.ogImage,
+  twitterImage: appConfig.app.seo.ogImage,
+  twitterCard: appConfig.app.seo.twitterCard
 })
 </script>
 
 <template>
-  <UApp>
+  <UApp :locale="nuxtUILocale">
     <UHeader>
       <template #left>
         <NuxtLink to="/">
-          <AppLogo class="w-auto h-6 shrink-0" />
+          <ClientOnly>
+            <AppLogo />
+          </ClientOnly>
         </NuxtLink>
-
-        <TemplateMenu />
       </template>
 
       <template #right>
-        <UColorModeButton />
-
-        <UButton
-          to="https://github.com/nuxt-ui-templates/starter"
-          target="_blank"
-          icon="i-simple-icons-github"
-          aria-label="GitHub"
-          color="neutral"
-          variant="ghost"
+        <UColorModeSwitch />
+        <ULocaleSelect
+          :model-value="locale"
+          :locales="[locales.ar, locales.en]"
+          class="w-48"
+          @update:model-value="handleLocaleChange($event as 'ar' | 'en')"
         />
       </template>
     </UHeader>
@@ -59,13 +93,13 @@ useSeoMeta({
     <UFooter>
       <template #left>
         <p class="text-sm text-muted">
-          Built with Nuxt UI • © {{ new Date().getFullYear() }}
+          {{ t('footer.copyright.made_by') }} {{ appTitle }} • © {{ new Date().getFullYear() }}
         </p>
       </template>
 
       <template #right>
         <UButton
-          to="https://github.com/nuxt-ui-templates/starter"
+          :to="appConfig.app.social.github"
           target="_blank"
           icon="i-simple-icons-github"
           aria-label="GitHub"

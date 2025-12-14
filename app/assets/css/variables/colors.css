@@ -1,0 +1,44 @@
+:root {
+  /* Backgrounds */
+  --color-bg-main: #ffffff;
+  --color-bg-body: #fafafa;
+  --color-bg-upper-nav: #ffffff;
+
+  /* Text */
+  --color-text-default: #1f2937;
+  --color-text-para: #4b5563;
+  --color-text-link: var(--color-primary-600);
+
+  /* Inputs */
+  --color-input-placeholder: #9ca3af;
+
+  /* Effects */
+  --color-shadow: rgba(0, 0, 0, 0.1);
+
+  /* Nuxt-UI */
+  /* https://ui.nuxt.com/docs/getting-started/theme/css-variables */
+  /* Here we are overriding the default colors for the Nuxt-UI components */
+  --ui-bg: var(--color-bg-main);
+  --ui-container: 1450px;
+}
+
+:root.dark {
+  /* Backgrounds */
+  --color-bg-main: #0f172a;
+  --color-bg-body: #1e293b;
+  --color-bg-upper-nav: #1e293b;
+
+  /* Text */
+  --color-text-default: #f1f5f9;
+  --color-text-para: #cbd5e1;
+  --color-text-link: var(--color-primary-400);
+
+  /* Inputs */
+  --color-input-placeholder: #64748b;
+
+  /* Effects */
+  --color-shadow: rgba(0, 0, 0, 0.3);
+
+  /* Nuxt-UI */
+  --ui-bg: var(--color-bg-main);
+}

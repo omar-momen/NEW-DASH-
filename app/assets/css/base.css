@@ -1,0 +1,53 @@
+@layer base {
+  body,
+  html {
+    /* @apply bg-bg-body text-text-default font-mulish; */
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      /* @apply font-abril; */
+      /* font-size: revert;
+      font-weight: revert; */
+    }
+
+    /* .app-no-tailwind * {
+      all: revert;
+    } */
+
+    /* &::-webkit-scrollbar {
+      display: none;
+    } */
+    /* -ms-overflow-style: none;
+    scrollbar-width: none;
+    touch-action: manipulation;
+    -ms-touch-action: manipulation; */
+  }
+
+  /* .overflow-auto,
+  .overflow-x-auto,
+  .overflow-y-auto {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .overflow-auto &::-webkit-scrollbar,
+  .overflow-y-auto &::-webkit-scrollbar {
+    display: none;
+  } */
+
+  /* html.scroll-locked,
+  body.scroll-locked {
+    overflow: hidden;
+    overscroll-behavior: contain;
+  } */
+
+  /* .container {
+    min-width: 100% !important;
+  } */
+
+
+}

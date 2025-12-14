@@ -1,0 +1,19 @@
+---
+alwaysApply: true
+---
+
+# General Project Rules
+
+## Framework & Language
+
+- Follow Nuxt 3 conventions and best practices
+- Use TypeScript for type safety
+- Prefer composables over plugins when possible
+- Maintain consistency with existing code patterns
+
+## Development Practices
+
+- Check documentation before implementing similar functionality
+- Follow existing code patterns and conventions
+- Ensure type safety with TypeScript
+- Use proper error handling patterns

@@ -1,0 +1,29 @@
+---
+alwaysApply: true
+---
+
+# Documentation Reference Rules
+
+**IMPORTANT: Always check the `docs/` folder for project-specific documentation, conventions, and guides before making changes or answering questions.**
+
+The `docs/` folder contains:
+- API composables usage guides (`docs/API_COMPOSABLES_GUIDE.md`)
+- Project-specific patterns and best practices
+- Architecture decisions and conventions
+
+## When to Reference Docs
+
+1. **Before answering questions about API calls** - Check `docs/API_COMPOSABLES_GUIDE.md` for:
+   - When to use `useApi` vs `useClientApi`
+   - Proper usage patterns (top-level await, event handlers, etc.)
+   - SSR vs client-only considerations
+
+2. **Before implementing new features** - Check for existing patterns and conventions
+
+3. **When explaining project structure** - Reference relevant documentation files
+
+4. **When making changes to composables or utilities** - Ensure changes align with documented patterns
+
+## Documentation Structure
+
+- `docs/API_COMPOSABLES_GUIDE.md` - Complete guide for `useApi` and `useClientApi` composables

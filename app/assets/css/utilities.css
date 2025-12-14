@@ -1,0 +1,37 @@
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stickyNav {
+  @apply bg-bg-main shadow-md shadow-secondary h-auto py-5;
+}
+
+.btn-shadow {
+  box-shadow: var(--btn-shadow);
+}
+
+.card-shadow {
+  box-shadow: var(--card-shadow);
+}
+
+.input-shadow {
+  box-shadow: var(--input-shadow);
+}
+
+/* Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  @apply w-1;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply rounded bg-primary;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-secondary-100;
+}
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}

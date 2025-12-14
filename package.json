@@ -16,6 +16,9 @@
     "@iconify-json/lucide": "^1.2.74",
     "@iconify-json/simple-icons": "^1.2.59",
     "@nuxt/ui": "^4.2.1",
+    "@nuxtjs/i18n": "^10.2.1",
+    "@vueuse/nuxt": "^14.1.0",
+    "husky": "^9.1.7",
     "nuxt": "^4.2.2"
   },
   "devDependencies": {

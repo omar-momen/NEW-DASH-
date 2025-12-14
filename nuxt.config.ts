@@ -2,7 +2,9 @@
 export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
-    '@nuxt/ui'
+    '@nuxt/ui',
+    '@nuxtjs/i18n',
+    '@vueuse/nuxt'
   ],
 
   devtools: {
@@ -10,6 +12,26 @@ export default defineNuxtConfig({
   },
 
   css: ['~/assets/css/main.css'],
+
+  ui: {
+    theme: {
+      colors: [
+        'primary',
+        'secondary',
+        'tertiary',
+        'info',
+        'success',
+        'warning',
+        'error'
+      ]
+    }
+  },
+
+  runtimeConfig: {
+    public: {
+      apiBaseUrl: ''
+    }
+  },
 
   routeRules: {
     '/': { prerender: true }
@@ -24,5 +46,42 @@ export default defineNuxtConfig({
         braceStyle: '1tbs'
       }
     }
+  },
+
+  i18n: {
+    strategy: 'prefix_except_default',
+    locales: [
+      {
+        code: 'ar',
+        name: 'Arabic',
+        file: 'ar.ts',
+        dir: 'rtl',
+        language: 'ar-SA'
+      },
+      {
+        code: 'en',
+        name: 'English',
+        file: 'en.ts',
+        dir: 'ltr',
+        language: 'en-US'
+      }
+    ],
+    defaultLocale: 'en',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_locale',
+      redirectOn: 'root',
+      cookieCrossOrigin: false,
+      cookieDomain: null,
+      cookieSecure: false
+    }
+  },
+
+  icon: {
+    size: '30px',
+    customCollections: [{
+      prefix: 'custom',
+      dir: './app/assets/icons'
+    }]
   }
 })

@@ -1,0 +1,15 @@
+.h1 {
+  @apply text-secondary text-4xl leading-12 lg:text-7xl  lg:leading-20 font-extrabold;
+}
+
+.h2 {
+  @apply text-secondary text-4xl lg:text-[64px] lg:leading-20 font-bold;
+}
+
+.para {
+  @apply text-text-para text-xl lg:text-2xl font-semibold leading-10
+}
+
+.sub_heading {
+  @apply text-primary text-2xl lg:text-3xl font-extrabold leading-10 lg:leading-14
+}

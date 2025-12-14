@@ -1,8 +1,27 @@
 {
     "cSpell.words": [
-      "Hawkam",
-      "iconify",
-      "Nuxt"
+        "abril",
+        "Fatface",
+        "Hawkam",
+        "iconify",
+        "nitropack",
+        "Nuxt",
+        "nuxtjs",
+        "ofetch",
+        "refetches",
+        "rgba",
+        "svgs",
+        "vueuse"
+    ],
+    "files.associations": {
+      "*.css": "tailwindcss"
+    },
+    "editor.quickSuggestions": {
+      "strings": "on"
+    },
+    "tailwindCSS.classAttributes": ["class", "ui"],
+    "tailwindCSS.experimental.classRegex": [
+      ["ui:\\s*{([^)]*)\\s*}", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
     ],
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "editor.formatOnSave": true,
@@ -24,5 +43,7 @@
         "typescript",
         "typescriptreact",
         "vue"
-    ]
+    ],
+    "css.lint.unknownAtRules": "ignore"
+
 }
